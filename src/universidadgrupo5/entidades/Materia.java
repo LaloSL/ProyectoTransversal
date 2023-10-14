@@ -10,7 +10,7 @@ package universidadgrupo5.entidades;
  * @author Asus
  */
 public class Materia {
-     private int idMateria;
+    private int idMateria;
     private String nombre;
     private int anioMateria;
     private boolean activa;
@@ -30,6 +30,8 @@ public class Materia {
         this.anioMateria = anioMateria;
         this.activa = activa;
     }
+
+   
     
     public int getIdMateria() {
         return idMateria;
