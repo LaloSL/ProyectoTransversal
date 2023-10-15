@@ -107,7 +107,7 @@ public class AlumnoData {
                 alumno.setActivo(true);
                 
                 
-                //JOptionPane.showMessageDialog(null, "Alumno borrado");
+                
             }else{
                 JOptionPane.showMessageDialog(null, "No existe el alumno con el ID indicado");
             }

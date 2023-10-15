@@ -8,11 +8,9 @@ package universidadgrupo5;
 import java.sql.Connection;
 import java.time.LocalDate;
 import java.time.Month;
-import universidadgrupo5.accesoADatos.AlumnoData;
-import universidadgrupo5.accesoADatos.Conexion;
-import universidadgrupo5.accesoADatos.MateriaData;
-import universidadgrupo5.entidades.Alumno;
-import universidadgrupo5.entidades.Materia;
+import universidadgrupo5.accesoADatos.*;
+import universidadgrupo5.entidades.*;
+
 
 /**
  *
@@ -87,13 +85,67 @@ public class UniversidadGrupo5 {
 //        System.out.println(materiaEncontrada.toString());
 
         ////Listar todos las Materias
-       MateriaData mat=new MateriaData();
-       for (Materia materia:mat.listarMaterias()){
-           System.out.println(materia.getIdMateria());           
-           System.out.println(materia.getNombre());
-           System.out.println(materia.getAnioMateria());
-           
-       }
+//       MateriaData mat=new MateriaData();
+//       for (Materia materia:mat.listarMaterias()){
+//           System.out.println(materia.getIdMateria());           
+//           System.out.println(materia.getNombre());
+//           System.out.println(materia.getAnioMateria());
+//           
+//       }
+            //Guardar Inscripción
+//            AlumnoData ad=new AlumnoData();
+//            MateriaData md=new MateriaData();
+//            InscripcionData id=new InscripcionData();
+//            
+//            Alumno gabriel=ad.buscarAlumnoId(35);
+//            Materia eda=md.buscarMateriaId(32);
+//            Inscripcion insc=new Inscripcion(gabriel,eda,9);
+//            
+//            id.guardarInscripcion(insc);
+            
+            
+            
+            //Actualizar Nota
+//            AlumnoData ad=new AlumnoData();
+//            MateriaData md=new MateriaData();
+//            InscripcionData id=new InscripcionData();
+//            
+//            Alumno gabriel=ad.buscarAlumnoId(35);
+//            Materia eda=md.buscarMateriaId(32);
+//            Inscripcion insc=new Inscripcion(gabriel,eda,9);
+//            
+//            id.actualizarNota(35, 32, 7);
+            
+            
+            //Eliminar Inscripción
+//             AlumnoData ad=new AlumnoData();
+//            MateriaData md=new MateriaData();
+//            InscripcionData id=new InscripcionData();
+//            
+//            Alumno gabriel=ad.buscarAlumnoId(35);
+//            Materia eda=md.buscarMateriaId(32);
+//            Inscripcion insc=new Inscripcion(gabriel,eda,9);
+//            id.borrarInscripcion(35, 32);
+            
+            
+            
+            
+             AlumnoData ad=new AlumnoData();
+            MateriaData md=new MateriaData();
+            InscripcionData id=new InscripcionData();
+            
+            Alumno gabriel=ad.buscarAlumnoId(35);
+            Materia eda=md.buscarMateriaId(32);
+            Inscripcion insc=new Inscripcion();
+            
+            for(Inscripcion inscripcion:id.obtenerInscripciones()){
+                
+            System.out.println("id "+inscripcion.getIdInscripcion());
+            System.out.println("Apellido "+inscripcion.getAlumno().getApellido());
+            System.out.println("Materia "+inscripcion.getMateria().getNombre());
+            
+            }
+
 
     
     
