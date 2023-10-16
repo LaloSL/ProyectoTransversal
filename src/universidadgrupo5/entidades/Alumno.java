@@ -9,7 +9,7 @@ import java.time.LocalDate;
 
 /**
  *
- * @author Asus
+ 
  */
 public class Alumno {
    private int idAlumno;
