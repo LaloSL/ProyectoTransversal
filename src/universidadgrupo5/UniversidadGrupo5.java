@@ -137,10 +137,10 @@ public class UniversidadGrupo5 {
             MateriaData md=new MateriaData();
             InscripcionData id=new InscripcionData();
             
-            Alumno gabriel=ad.buscarAlumnoId(35);
-            Materia eda=md.buscarMateriaId(32);
-            Inscripcion insc=new Inscripcion(gabriel,eda,7);
-            
+//            Alumno gabriel=ad.buscarAlumnoId(35);
+//            Materia eda=md.buscarMateriaId(26);
+//            Inscripcion insc=new Inscripcion();
+            //aca define el void
             for(Inscripcion inscripcion:id.obtenerInscripciones()){
                 
             System.out.println("id "+inscripcion.getIdInscripcion());
