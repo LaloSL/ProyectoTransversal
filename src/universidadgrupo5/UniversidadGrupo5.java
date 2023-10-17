@@ -24,9 +24,11 @@ public class UniversidadGrupo5 {
     public static void main(String[] args) {
     
         //Guardar Alumno
+       // en este creo que no hace falta el idAlumno
        //Alumno joaquin= new Alumno(37, 1231231231, "Ortega", "Joaquin", LocalDate.of(1990, 5, 5), true);
-       // AlumnoData alu= new AlumnoData();
-       // alu.guardarAlumno(joaquin);
+      // creo un objeto Alumno data que me permite guardar en la BD
+//        AlumnoData alu= new AlumnoData();
+//        alu.guardarAlumno(joaquin);
        
        //Modificar Alumno
 //         Alumno joaquin= new Alumno(37, 1231231231, "Ortega", "Joaco", LocalDate.of(1990, 5, 5), true);
@@ -60,9 +62,10 @@ public class UniversidadGrupo5 {
         
     
     //Agregar materia
-//    Materia EDA = new Materia("EDA",2022, true);
+//    Materia Matematica = new Materia("Matematica",2023, true);
+//    //Materia EDA = new Materia("EDA",2022, true);
 //    MateriaData mat = new MateriaData();
-//    mat.guardarMateria(EDA);
+//    mat.guardarMateria(Matematica);
 
     
 //    Modificar materia
@@ -96,10 +99,10 @@ public class UniversidadGrupo5 {
 //            AlumnoData ad=new AlumnoData();
 //            MateriaData md=new MateriaData();
 //            InscripcionData id=new InscripcionData();
-//            
-//            Alumno gabriel=ad.buscarAlumnoId(35);
-//            Materia eda=md.buscarMateriaId(32);
-//            Inscripcion insc=new Inscripcion(gabriel,eda,9);
+////            
+//            Alumno gabriel=ad.buscarAlumnoId(1);
+//            Materia Laboratortio1=md.buscarMateriaId(2);
+//            Inscripcion insc=new Inscripcion(gabriel,Laboratortio1,8);
 //            
 //            id.guardarInscripcion(insc);
             
@@ -117,7 +120,7 @@ public class UniversidadGrupo5 {
 //            id.actualizarNota(35, 32, 7);
             
             
-            //Eliminar Inscripción
+//            Eliminar Inscripción
 //             AlumnoData ad=new AlumnoData();
 //            MateriaData md=new MateriaData();
 //            InscripcionData id=new InscripcionData();
@@ -125,18 +128,18 @@ public class UniversidadGrupo5 {
 //            Alumno gabriel=ad.buscarAlumnoId(35);
 //            Materia eda=md.buscarMateriaId(32);
 //            Inscripcion insc=new Inscripcion(gabriel,eda,9);
-//            id.borrarInscripcion(35, 32);
+//            id.borrarInscripcion(36, 29);
             
             
             
-            
+            //listar inscripciones
              AlumnoData ad=new AlumnoData();
             MateriaData md=new MateriaData();
             InscripcionData id=new InscripcionData();
             
             Alumno gabriel=ad.buscarAlumnoId(35);
             Materia eda=md.buscarMateriaId(32);
-            Inscripcion insc=new Inscripcion();
+            Inscripcion insc=new Inscripcion(gabriel,eda,7);
             
             for(Inscripcion inscripcion:id.obtenerInscripciones()){
                 
@@ -144,6 +147,7 @@ public class UniversidadGrupo5 {
             System.out.println("Apellido "+inscripcion.getAlumno().getApellido());
             System.out.println("Materia "+inscripcion.getMateria().getNombre());
             
+              
             }
 
 
@@ -151,5 +155,6 @@ public class UniversidadGrupo5 {
     
 
 
-}
-}
+
+    }}
+
