@@ -5,6 +5,7 @@
  */
 package universidadgrupo5.vistas;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
@@ -34,45 +35,60 @@ public class MenuView extends javax.swing.JFrame {
     private void initComponents() {
 
         ImageIcon icono=new ImageIcon(getClass().getResource("/universidadgrupo5/recursos/Universidad.jpg"));
-        Image fondoEscritorio=icono.getImage();
-        jDesktopPane1 = new javax.swing.JDesktopPane(){
+        Image miImagen=icono.getImage();
+        escritorio = new javax.swing.JDesktopPane(){
 
-            public void painComponent(Graphics g){
+            public void paintComponent(Graphics g){
 
-                g.drawImage(fondoEscritorio,0,0,getWidth(),getHeight(),this);
+                g.drawImage(miImagen,0,0,getWidth(),getHeight(),this);
             }
 
         };
         jMenuBar2 = new javax.swing.JMenuBar();
-        jMenu3 = new javax.swing.JMenu();
+        jMAlumnos = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
-        jMenu4 = new javax.swing.JMenu();
+        jMMateria = new javax.swing.JMenu();
+        JMMaterias = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         jMenu6 = new javax.swing.JMenu();
         jMenu7 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
-        jDesktopPane1.setLayout(jDesktopPane1Layout);
-        jDesktopPane1Layout.setHorizontalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 388, Short.MAX_VALUE)
+        javax.swing.GroupLayout escritorioLayout = new javax.swing.GroupLayout(escritorio);
+        escritorio.setLayout(escritorioLayout);
+        escritorioLayout.setHorizontalGroup(
+            escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
         );
-        jDesktopPane1Layout.setVerticalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 248, Short.MAX_VALUE)
+        escritorioLayout.setVerticalGroup(
+            escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 260, Short.MAX_VALUE)
         );
 
-        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidadgrupo5/recursos/alumno.png"))); // NOI18N
+        jMAlumnos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidadgrupo5/recursos/alumno.png"))); // NOI18N
 
-        jMenuItem2.setText("jMenuItem2");
-        jMenu3.add(jMenuItem2);
+        jMenuItem2.setText("Formulario de Alumno");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMAlumnos.add(jMenuItem2);
 
-        jMenuBar2.add(jMenu3);
+        jMenuBar2.add(jMAlumnos);
 
-        jMenu4.setText("Materia");
-        jMenuBar2.add(jMenu4);
+        jMMateria.setText("Materia");
+
+        JMMaterias.setText("Formulario de Materias");
+        JMMaterias.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JMMateriasActionPerformed(evt);
+            }
+        });
+        jMMateria.add(JMMaterias);
+
+        jMenuBar2.add(jMMateria);
 
         jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidadgrupo5/recursos/administracion.png"))); // NOI18N
         jMenuBar2.add(jMenu5);
@@ -89,21 +105,37 @@ public class MenuView extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jDesktopPane1)
-                .addContainerGap())
+            .addComponent(escritorio, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addComponent(escritorio)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+         escritorio.removeAll();
+        escritorio.repaint();
+        FormularioAlumnoView alumno = new FormularioAlumnoView();
+        alumno.setVisible(true);
+        alumno.getContentPane().setBackground(new Color(68, 167, 132));
+        escritorio.add(alumno);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void JMMateriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMMateriasActionPerformed
+        // TODO add your handling code here:
+         escritorio.removeAll();
+        escritorio.repaint();
+        FormularioMateria materia = new FormularioMateria();
+        materia.setVisible(true);
+        materia.getContentPane().setBackground(new Color(68, 167, 132));
+        escritorio.add(materia);
+    
+                                    
+    }//GEN-LAST:event_JMMateriasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -141,9 +173,10 @@ public class MenuView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDesktopPane jDesktopPane1;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenuItem JMMaterias;
+    private javax.swing.JDesktopPane escritorio;
+    private javax.swing.JMenu jMAlumnos;
+    private javax.swing.JMenu jMMateria;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
