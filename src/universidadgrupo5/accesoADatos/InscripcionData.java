@@ -171,7 +171,7 @@ public class InscripcionData {
     
     public List<Materia> obtenerMateriasNoCursadas (int idAlumno){
         ArrayList <Materia> materias=new ArrayList<>();
-         String sql = "SELECT * FROM materia "
+         String sql = "SELECT * FROM materia "//son importantes los espacios en el STRING de sql
            + "WHERE estado=1 AND idMateria NOT IN"
            //subconsulta
            //id de todas las materias en las que esta inscripto un alumno
