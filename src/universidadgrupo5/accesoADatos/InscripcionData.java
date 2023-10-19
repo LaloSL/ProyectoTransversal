@@ -145,9 +145,12 @@ public class InscripcionData {
     public List<Materia> obtenerMateriasCursadas(int idAlumno){
       ArrayList<Materia> materias=new ArrayList<>();
       //producto cartesiano
-      String sql="SELECT inscripcion.idMateria,nombre,año FROM inscripcion,"
-              + "materia WHERE inscripcion.idMateria=materia.idMateria"
-              + "AND inscripcion.idAlumno=?";
+      String sql="SELECT inscripcion.idMateria, nombre, año " +
+             "FROM inscripcion, materia " +
+             "WHERE inscripcion.idMateria = materia.idMateria " +
+             "AND inscripcion.idAlumno = ?";
+      
+
         try {
             PreparedStatement ps=con.prepareStatement(sql);
             ps.setInt(1,idAlumno);
@@ -168,11 +171,15 @@ public class InscripcionData {
     
     public List<Materia> obtenerMateriasNoCursadas (int idAlumno){
         ArrayList <Materia> materias=new ArrayList<>();
-        String sql="SELECT * FROM materia"
-              + "WHERE estado=1 AND idMateria not in"
-                //subconsulta
-                //id de todas las materias en las que esta inscripto un alumno
-              + "(SELECT idMateria FROM inscripcion WHERE idAlumno=?)";
+         String sql = "SELECT * FROM materia "
+           + "WHERE estado=1 AND idMateria NOT IN"
+           //subconsulta
+           //id de todas las materias en las que esta inscripto un alumno
+           + "(SELECT idMateria FROM inscripcion WHERE idAlumno = ?)";
+        
+       
+
+                      
         try {
             PreparedStatement ps=con.prepareStatement(sql);
             ps.setInt(1,idAlumno);
@@ -193,7 +200,7 @@ public class InscripcionData {
     
     public List <Alumno> obtenerAlumnosXMateria(int idMateria){
         ArrayList<Alumno> alumnosMateria= new ArrayList<>();
-         String sql="SELECT a.idAlumno,dni, nombre, apelli, fechaNacimineto, estado"
+         String sql="SELECT a.idAlumno,dni, nombre, apellido, fechaNacimiento, estado"
                  + " FROM inscripcion i, alumno a WHERE i.idAlumno=a.idAlumno AND idMateria=? AND a.estado=1";
         try {
             PreparedStatement ps=con.prepareStatement(sql);
@@ -204,7 +211,7 @@ public class InscripcionData {
                alumno.setIdAlumno(rs.getInt("idAlumno"));
                alumno.setApellido(rs.getString("apellido"));
                alumno.setNombre(rs.getString("nombre"));
-               alumno.setFechaNac(rs.getDate("fechaNacimineto").toLocalDate());
+               alumno.setFechaNac(rs.getDate("fechaNacimiento").toLocalDate());
                alumno.setActivo(rs.getBoolean("estado"));
                alumnosMateria.add(alumno);
                 
