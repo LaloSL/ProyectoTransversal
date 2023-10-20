@@ -5,11 +5,22 @@
  */
 package universidadgrupo5.vistas;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
+import javax.swing.JOptionPane;
+import universidadgrupo5.accesoADatos.AlumnoData;
+import universidadgrupo5.entidades.Alumno;
+
 /**
  *
  * @author Asus
  */
 public class FormularioAlumnoView extends javax.swing.JFrame {
+    private AlumnoData aluData= new AlumnoData();
+    private Alumno alumnoActual=null;
+    
+    
 
     /**
      * Creates new form FormularioAlumnoView
@@ -34,16 +45,16 @@ public class FormularioAlumnoView extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTDocumento = new javax.swing.JTextField();
-        jTNombre = new javax.swing.JTextField();
-        jTApellido = new javax.swing.JTextField();
-        jCEstado = new javax.swing.JCheckBox();
-        jDFechaNacimiento = new com.toedter.calendar.JDateChooser();
+        jtDni = new javax.swing.JTextField();
+        jtNombre = new javax.swing.JTextField();
+        jtApellido = new javax.swing.JTextField();
+        jcEstado = new javax.swing.JCheckBox();
+        jdFechaNacimiento = new com.toedter.calendar.JDateChooser();
         jBBuscar = new javax.swing.JButton();
-        jBGuardar = new javax.swing.JButton();
-        jBEliminar = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jBSalir = new javax.swing.JButton();
+        jbGuardar = new javax.swing.JButton();
+        jbEliminar = new javax.swing.JButton();
+        jbNuevo = new javax.swing.JButton();
+        jbSalir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -59,21 +70,46 @@ public class FormularioAlumnoView extends javax.swing.JFrame {
 
         jLabel6.setText("Fecha de Nacimiento");
 
-        jTDocumento.addActionListener(new java.awt.event.ActionListener() {
+        jtDni.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTDocumentoActionPerformed(evt);
+                jtDniActionPerformed(evt);
             }
         });
 
         jBBuscar.setText("Buscar");
+        jBBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBBuscarActionPerformed(evt);
+            }
+        });
 
-        jBGuardar.setText("Guardar");
+        jbGuardar.setText("Guardar");
+        jbGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbGuardarActionPerformed(evt);
+            }
+        });
 
-        jBEliminar.setText("Eliminar");
+        jbEliminar.setText("Eliminar");
+        jbEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbEliminarActionPerformed(evt);
+            }
+        });
 
-        jButton4.setText("Nuevo");
+        jbNuevo.setText("Nuevo");
+        jbNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbNuevoActionPerformed(evt);
+            }
+        });
 
-        jBSalir.setText("Salir");
+        jbSalir.setText("Salir");
+        jbSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbSalirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -96,27 +132,27 @@ public class FormularioAlumnoView extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jCEstado)
+                                .addComponent(jcEstado)
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(0, 14, Short.MAX_VALUE)
-                                        .addComponent(jDFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jTApellido)
-                                    .addComponent(jTDocumento)
-                                    .addComponent(jTNombre))
+                                        .addComponent(jdFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jtApellido)
+                                    .addComponent(jtDni)
+                                    .addComponent(jtNombre))
                                 .addGap(18, 18, 18)
                                 .addComponent(jBBuscar)
                                 .addGap(15, 15, 15))))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton4)
+                        .addComponent(jbNuevo)
                         .addGap(32, 32, 32)
-                        .addComponent(jBEliminar)
+                        .addComponent(jbEliminar)
                         .addGap(31, 31, 31)
-                        .addComponent(jBGuardar)
+                        .addComponent(jbGuardar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jBSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jbSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(14, 14, 14))))
         );
         layout.setVerticalGroup(
@@ -129,38 +165,122 @@ public class FormularioAlumnoView extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
-                            .addComponent(jTDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jBBuscar))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel5)
-                            .addComponent(jTApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(10, 10, 10)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
-                            .addComponent(jTNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel4))
-                    .addComponent(jCEstado))
+                    .addComponent(jcEstado))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6)
-                    .addComponent(jDFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jdFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBGuardar)
-                    .addComponent(jBEliminar)
-                    .addComponent(jBSalir)
-                    .addComponent(jButton4))
+                    .addComponent(jbGuardar)
+                    .addComponent(jbEliminar)
+                    .addComponent(jbSalir)
+                    .addComponent(jbNuevo))
                 .addContainerGap(37, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTDocumentoActionPerformed
+    private void jtDniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtDniActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTDocumentoActionPerformed
+    }//GEN-LAST:event_jtDniActionPerformed
+
+    private void jBBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarActionPerformed
+       
+        try{
+        Integer dni=Integer.parseInt(jtDni.getText());
+        alumnoActual= aluData.buscarAlumnoDni(dni);
+        if(alumnoActual!=null){
+            jtApellido.setText(alumnoActual.getApellido());
+            jtNombre.setText(alumnoActual.getNombre());
+            jcEstado.setSelected(alumnoActual.isActivo());
+            LocalDate lc= alumnoActual.getFechaNac();
+            //para setear la fecha de nacimiento
+            java.util.Date date=java.util.Date.from(lc.atStartOfDay(ZoneId.systemDefault()).toInstant());
+            jdFechaNacimiento.setDate(date);
+                        
+        }
+        
+        
+        }catch (NumberFormatException ex){
+            JOptionPane.showMessageDialog(this, "Favor ingresar un numero valido");
+        }
+        
+    }//GEN-LAST:event_jBBuscarActionPerformed
+
+    private void jbNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoActionPerformed
+        
+        limpiarCampos();
+        alumnoActual=null;
+        
+        
+        
+    }//GEN-LAST:event_jbNuevoActionPerformed
+
+    private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
+
+        try{
+            Integer dni = Integer.parseInt(jtDni.getText());
+            String nombre = jtNombre.getText();
+            String apellido = jtApellido.getText();
+            if (nombre.isEmpty() || apellido.isEmpty()) {
+
+                JOptionPane.showMessageDialog(this, "Favor copmpletar los campos vacios");
+                return;
+            }
+            java.util.Date sfecha = jdFechaNacimiento.getDate();
+            LocalDate fechaNac = sfecha.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            boolean estado = jcEstado.isSelected();
+            if (alumnoActual == null) {
+                alumnoActual = new Alumno(dni, apellido, nombre, fechaNac, estado);
+                aluData.guardarAlumno(alumnoActual);
+            } else {
+                alumnoActual.setDni(dni);
+                alumnoActual.setApellido(apellido);
+                alumnoActual.setNombre(nombre);
+                alumnoActual.setFechaNac(fechaNac);
+                aluData.modificarAlumno(alumnoActual);
+
+            }
+
+        }catch (NumberFormatException nfe){
+        JOptionPane.showMessageDialog(this, "Ingresar un DNI valido");
+        }
+        limpiarCampos();
+        
+    }//GEN-LAST:event_jbGuardarActionPerformed
+
+    private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
+        
+        if(alumnoActual!=null){
+        aluData.eliminarAlumno(alumnoActual.getIdAlumno());
+        alumnoActual=null;
+        limpiarCampos();
+        
+        }else{
+            JOptionPane.showMessageDialog(this, "No hay alumno seleccionado");
+        
+        }
+        
+                
+    }//GEN-LAST:event_jbEliminarActionPerformed
+
+    private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
+        dispose();
+    }//GEN-LAST:event_jbSalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -196,15 +316,19 @@ public class FormularioAlumnoView extends javax.swing.JFrame {
             }
         });
     }
+    
+    private void limpiarCampos(){
+    
+        jtDni.setText("");
+        jtApellido.setText("");
+        jtNombre.setText("");
+        jcEstado.setSelected(true);
+        jdFechaNacimiento.setDate(new Date());
+        
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBBuscar;
-    private javax.swing.JButton jBEliminar;
-    private javax.swing.JButton jBGuardar;
-    private javax.swing.JButton jBSalir;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JCheckBox jCEstado;
-    private com.toedter.calendar.JDateChooser jDFechaNacimiento;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -212,8 +336,14 @@ public class FormularioAlumnoView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JTextField jTApellido;
-    private javax.swing.JTextField jTDocumento;
-    private javax.swing.JTextField jTNombre;
+    private javax.swing.JButton jbEliminar;
+    private javax.swing.JButton jbGuardar;
+    private javax.swing.JButton jbNuevo;
+    private javax.swing.JButton jbSalir;
+    private javax.swing.JCheckBox jcEstado;
+    private com.toedter.calendar.JDateChooser jdFechaNacimiento;
+    private javax.swing.JTextField jtApellido;
+    private javax.swing.JTextField jtDni;
+    private javax.swing.JTextField jtNombre;
     // End of variables declaration//GEN-END:variables
 }
