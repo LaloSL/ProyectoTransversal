@@ -94,6 +94,11 @@ public class FormularioInscripcion extends javax.swing.JFrame {
         });
 
         radioNoInscriptas.setText("Materias no inscriptas");
+        radioNoInscriptas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radioNoInscriptasActionPerformed(evt);
+            }
+        });
 
         jtMateria.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -191,6 +196,10 @@ public class FormularioInscripcion extends javax.swing.JFrame {
         jBInscribir.setEnabled(false);
         
     }//GEN-LAST:event_radioInscriptasActionPerformed
+
+    private void radioNoInscriptasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioNoInscriptasActionPerformed
+        ////////////////////
+    }//GEN-LAST:event_radioNoInscriptasActionPerformed
 
     /**
      * @param args the command line arguments
