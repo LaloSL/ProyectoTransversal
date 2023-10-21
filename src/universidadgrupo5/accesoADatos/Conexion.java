@@ -24,8 +24,8 @@ public class Conexion {
     public static Connection getCotexion(){
         if (connection==null){
             try {
-                Class.forName("org.mariadb.jdbc.Driver");
-                connection = DriverManager.getConnection(URL+DB,USUARIO,PASWORD);
+                Class.forName("org.mariadb.jdbc.Driver");//cargamos el driver
+                connection = DriverManager.getConnection(URL+DB,USUARIO,PASWORD);//conectamos el driver
             //JOptionPane.showMessageDialog(null, "Conectado");
                 
             } catch (ClassNotFoundException ex) {
