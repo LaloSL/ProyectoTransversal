@@ -203,6 +203,7 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
     }
     
     
+    //metodo carga datos inscriptos
     
     
     
