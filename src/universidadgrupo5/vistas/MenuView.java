@@ -114,17 +114,19 @@ public class MenuView extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    //Formulario alumno
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
-         escritorio.removeAll();
+        escritorio.removeAll();
         escritorio.repaint();
         FormularioAlumnoView alumno = new FormularioAlumnoView();
         alumno.setVisible(true);
+        //cambia color de fondo
         alumno.getContentPane().setBackground(new Color(68, 167, 132));
         escritorio.add(alumno);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
-
+    
+    //formulario de materias
     private void JMMateriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMMateriasActionPerformed
         // TODO add your handling code here:
          escritorio.removeAll();
