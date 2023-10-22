@@ -11,6 +11,7 @@ import java.util.Date;
 import javax.swing.JOptionPane;
 import universidadgrupo5.accesoADatos.AlumnoData;
 import universidadgrupo5.entidades.Alumno;
+//import com.toedter.calendar.JDateChooser;
 
 
 /**
@@ -18,6 +19,8 @@ import universidadgrupo5.entidades.Alumno;
  * @author Asus
  */
 public class FormularioAlumnoView extends javax.swing.JInternalFrame {
+   //JDateChooser jdFechaNacimiento = new JDateChooser();
+
     private AlumnoData aluData= new AlumnoData();
     private Alumno alumnoActual=null;
 

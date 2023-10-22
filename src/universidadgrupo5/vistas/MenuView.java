@@ -50,6 +50,8 @@ public class MenuView extends javax.swing.JFrame {
         jMMateria = new javax.swing.JMenu();
         JMMaterias = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
+        jMinscripciones = new javax.swing.JMenuItem();
+        jMNotas = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         jMenu7 = new javax.swing.JMenu();
 
@@ -91,6 +93,18 @@ public class MenuView extends javax.swing.JFrame {
         jMenuBar2.add(jMMateria);
 
         jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidadgrupo5/recursos/administracion.png"))); // NOI18N
+
+        jMinscripciones.setText("Manejo de Inscripciones");
+        jMinscripciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMinscripcionesActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jMinscripciones);
+
+        jMNotas.setText("Manipulacion de Notas");
+        jMenu5.add(jMNotas);
+
         jMenuBar2.add(jMenu5);
 
         jMenu6.setText("Consultas");
@@ -139,6 +153,18 @@ public class MenuView extends javax.swing.JFrame {
                                     
     }//GEN-LAST:event_JMMateriasActionPerformed
 
+    private void jMinscripcionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMinscripcionesActionPerformed
+        {                                           
+       ///////////////////// REVISAR ESTO
+        escritorio.removeAll();
+        escritorio.repaint();
+        FormularioInscripcion inscriptas = new FormularioInscripcion();
+        inscriptas.setVisible(true);
+        inscriptas.getContentPane().setBackground(new Color(68, 167, 132));
+        escritorio.add(inscriptas);
+    }                            
+    }//GEN-LAST:event_jMinscripcionesActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -179,10 +205,12 @@ public class MenuView extends javax.swing.JFrame {
     private javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenu jMAlumnos;
     private javax.swing.JMenu jMMateria;
+    private javax.swing.JMenuItem jMNotas;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMinscripciones;
     // End of variables declaration//GEN-END:variables
 }
