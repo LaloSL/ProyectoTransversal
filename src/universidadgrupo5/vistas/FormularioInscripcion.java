@@ -52,13 +52,13 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         cboxAlumno = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        radioInscriptas = new javax.swing.JRadioButton();
+        radioNoInscriptas = new javax.swing.JRadioButton();
+        buttonSalir = new javax.swing.JButton();
+        jBInscribir = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtMaterias = new javax.swing.JTable();
-        jButton3 = new javax.swing.JButton();
+        jBAInscribir = new javax.swing.JButton();
 
         jLabel1.setText("Formulario de Inscripcion");
 
@@ -66,18 +66,23 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
 
         jLabel3.setText("Listado de Materias");
 
-        jRadioButton1.setText("Materias Inscriptas");
-
-        jRadioButton2.setText("Materias no inscriptas");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+        radioInscriptas.setText("Materias Inscriptas");
+        radioInscriptas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
+                radioInscriptasActionPerformed(evt);
             }
         });
 
-        jButton1.setText("Salir");
+        radioNoInscriptas.setText("Materias no inscriptas");
+        radioNoInscriptas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radioNoInscriptasActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Inscribir");
+        buttonSalir.setText("Salir");
+
+        jBInscribir.setText("Inscribir");
 
         jtMaterias.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -92,7 +97,7 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jtMaterias);
 
-        jButton3.setText("Anular Inscripcion");
+        jBAInscribir.setText("Anular Inscripcion");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -100,9 +105,9 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(56, 56, 56)
-                .addComponent(jRadioButton1)
+                .addComponent(radioInscriptas)
                 .addGap(36, 36, 36)
-                .addComponent(jRadioButton2)
+                .addComponent(radioNoInscriptas)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(21, 21, 21)
@@ -115,11 +120,11 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
                         .addGap(164, 164, 164))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(jButton2)
+                        .addComponent(jBInscribir)
                         .addGap(88, 88, 88)
-                        .addComponent(jButton3)
+                        .addComponent(jBAInscribir)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1)
+                        .addComponent(buttonSalir)
                         .addContainerGap())))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -146,24 +151,33 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton2)
-                    .addComponent(jRadioButton1))
+                    .addComponent(radioNoInscriptas)
+                    .addComponent(radioInscriptas))
                 .addGap(47, 47, 47)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(jBAInscribir)
+                    .addComponent(buttonSalir)
+                    .addComponent(jBInscribir))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+    private void radioNoInscriptasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioNoInscriptasActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
+    }//GEN-LAST:event_radioNoInscriptasActionPerformed
+    
+    //RadioButton Materias Inscriptas
+    private void radioInscriptasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioInscriptasActionPerformed
+      borrarFilaTabla();
+      radioNoInscriptas.setSelected(false);
+      cargaDatosInscriptas();
+      jBAInscribir.setEnabled(true);
+      jBInscribir.setEnabled(false);
+    }//GEN-LAST:event_radioInscriptasActionPerformed
 
     //Cargar alumnos
     private void cargaAlumnos(){ //cargar al combo box
@@ -196,7 +210,7 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
     private void cargaDatosNoInscriptas(){
         //borrar filas de la tabla
         Alumno selec= (Alumno)cboxAlumno.getSelectedItem();
-        listaM=(ArrayList)inscData.obtenerMateriasNoCursadas(selec.getIdAlumno());
+        listaM=inscData.obtenerMateriasNoCursadas(selec.getIdAlumno());
         for (Materia m: listaM) {
             modelo.addRow(new Object[]{m.getIdMateria(),m.getNombre(), m.getAnioMateria()});
         }
@@ -204,7 +218,14 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
     
     
     //metodo carga datos inscriptos
-    
+    private void cargaDatosInscriptas(){
+        //borrarFilasTabla()
+        Alumno selec= (Alumno)cboxAlumno.getSelectedItem();
+        List <Materia> lista= inscData.obtenerMateriasCursadas(selec.getIdAlumno());
+        for (Materia m: lista) {
+            modelo.addRow(new Object[]{m.getIdMateria(),m.getNombre(), m.getAnioMateria()});
+        } 
+    }
     
     
     
@@ -213,16 +234,16 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonSalir;
     private javax.swing.JComboBox<Alumno> cboxAlumno;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jBAInscribir;
+    private javax.swing.JButton jBInscribir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jtMaterias;
+    private javax.swing.JRadioButton radioInscriptas;
+    private javax.swing.JRadioButton radioNoInscriptas;
     // End of variables declaration//GEN-END:variables
 }
