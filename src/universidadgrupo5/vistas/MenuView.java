@@ -9,7 +9,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
-import static org.mariadb.jdbc.internal.util.pool.Pools.close;
+//import static org.mariadb.jdbc.internal.util.pool.Pools.close;
 
 /**
  *
@@ -151,7 +151,7 @@ public class MenuView extends javax.swing.JFrame {
         // TODO add your handling code here:
          escritorio.removeAll();
         escritorio.repaint();
-        FormularioMateria materia = new FormularioMateria();
+        GestionMaterias materia = new GestionMaterias();
         materia.setVisible(true);
         materia.getContentPane().setBackground(new Color(68, 167, 132));
         escritorio.add(materia);
