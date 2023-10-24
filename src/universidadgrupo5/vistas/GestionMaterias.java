@@ -56,6 +56,11 @@ public class GestionMaterias extends javax.swing.JInternalFrame {
         jLabel1.setText("Materia");
 
         jBNuevo.setText("Nuevo");
+        jBNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBNuevoActionPerformed(evt);
+            }
+        });
 
         jBSalir.setText("Salir");
         jBSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -65,6 +70,11 @@ public class GestionMaterias extends javax.swing.JInternalFrame {
         });
 
         jBEliminar.setText("Eliminar");
+        jBEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBEliminarActionPerformed(evt);
+            }
+        });
 
         jBGuardar.setText("Guardar");
         jBGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -232,6 +242,29 @@ public class GestionMaterias extends javax.swing.JInternalFrame {
     private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
         dispose();
     }//GEN-LAST:event_jBSalirActionPerformed
+    
+
+    //BOTON NUEVO
+    private void jBNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNuevoActionPerformed
+                                       
+        limpiarCampos();
+        matActual=null;
+    
+    }//GEN-LAST:event_jBNuevoActionPerformed
+
+    private void jBEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEliminarActionPerformed
+        // TODO add your handling code here:
+        if(matActual!=null){
+        //si entra es xq el alumno existe
+        matData.eliminarMateria(matActual.getIdMateria());
+        matActual=null;
+        limpiarCampos();
+        
+        }else{
+            JOptionPane.showMessageDialog(this, "Favor indicar el codigo de la materia");
+        
+        }
+    }//GEN-LAST:event_jBEliminarActionPerformed
 
     private void limpiarCampos(){
     
