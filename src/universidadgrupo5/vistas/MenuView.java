@@ -9,6 +9,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import static org.mariadb.jdbc.internal.util.pool.Pools.close;
 
 /**
  *
@@ -53,7 +54,7 @@ public class MenuView extends javax.swing.JFrame {
         jMinscripciones = new javax.swing.JMenuItem();
         jMNotas = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
-        jMenu7 = new javax.swing.JMenu();
+        jSalirProgram = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -110,8 +111,13 @@ public class MenuView extends javax.swing.JFrame {
         jMenu6.setText("Consultas");
         jMenuBar2.add(jMenu6);
 
-        jMenu7.setText("Salir");
-        jMenuBar2.add(jMenu7);
+        jSalirProgram.setText("Salir");
+        jSalirProgram.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jSalirProgramActionPerformed(evt);
+            }
+        });
+        jMenuBar2.add(jSalirProgram);
 
         setJMenuBar(jMenuBar2);
 
@@ -165,6 +171,10 @@ public class MenuView extends javax.swing.JFrame {
     }                            
     }//GEN-LAST:event_jMinscripcionesActionPerformed
 
+    private void jSalirProgramActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSalirProgramActionPerformed
+       dispose(); // finalizar programa (FY)
+    }//GEN-LAST:event_jSalirProgramActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -208,9 +218,9 @@ public class MenuView extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMNotas;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenu jMenu7;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMinscripciones;
+    private javax.swing.JMenu jSalirProgram;
     // End of variables declaration//GEN-END:variables
 }

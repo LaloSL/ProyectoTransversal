@@ -92,7 +92,7 @@ public class Alumno {
     //ToString
     @Override
     public String toString() {
-        return "Alumno{" + "idAlumno=" + idAlumno + ", apellido=" + apellido + ", nombre=" + nombre + '}';
+        return dni+", Apellido: "+apellido+", Nombre: "+nombre; // toString tuneado (FY) ver video 29:59
     }
 
 
