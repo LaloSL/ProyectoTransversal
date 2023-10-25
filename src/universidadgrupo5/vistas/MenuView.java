@@ -104,6 +104,11 @@ public class MenuView extends javax.swing.JFrame {
         jMenu5.add(jMinscripciones);
 
         jMNotas.setText("Manipulacion de Notas");
+        jMNotas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMNotasActionPerformed(evt);
+            }
+        });
         jMenu5.add(jMNotas);
 
         jMenuBar2.add(jMenu5);
@@ -174,6 +179,17 @@ public class MenuView extends javax.swing.JFrame {
     private void jSalirProgramActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSalirProgramActionPerformed
        dispose(); // finalizar programa (FY)
     }//GEN-LAST:event_jSalirProgramActionPerformed
+
+    private void jMNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMNotasActionPerformed
+        // TODO add your handling code here:
+        
+         escritorio.removeAll();
+        escritorio.repaint();
+        FormularioNota nota = new FormularioNota();
+        nota.setVisible(true);
+        nota.getContentPane().setBackground(new Color(68, 167, 132));
+        escritorio.add(nota);
+    }//GEN-LAST:event_jMNotasActionPerformed
 
     /**
      * @param args the command line arguments

@@ -63,6 +63,12 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
 
         jLabel2.setText("Seleccione un alumno:");
 
+        cboxAlumno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboxAlumnoActionPerformed(evt);
+            }
+        });
+
         jLabel3.setText("Listado de Materias");
 
         radioInscriptas.setText("Materias Inscriptas");
@@ -239,6 +245,10 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
     private void buttonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSalirActionPerformed
         dispose();
     }//GEN-LAST:event_buttonSalirActionPerformed
+
+    private void cboxAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxAlumnoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cboxAlumnoActionPerformed
     
 
     //Cargar alumnos
