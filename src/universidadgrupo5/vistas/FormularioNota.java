@@ -25,6 +25,7 @@ public class FormularioNota extends javax.swing.JInternalFrame {
     
     private List<Materia> listaM;
     private List<Alumno> listaA;
+    private List<Inscripcion> Inscripcion;
 
     private InscripcionData inscData;
     private MateriaData mData;
@@ -71,6 +72,7 @@ public class FormularioNota extends javax.swing.JInternalFrame {
 
         jLabel2.setText("Seleccione un Alumno: ");
 
+        cBoxAlumno.setSelectedItem(cBoxAlumno);
         cBoxAlumno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cBoxAlumnoActionPerformed(evt);
@@ -80,6 +82,11 @@ public class FormularioNota extends javax.swing.JInternalFrame {
         jButton1.setText("Guardar");
 
         jBSalir.setText("Salir");
+        jBSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBSalirActionPerformed(evt);
+            }
+        });
 
         jTablaNota.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -142,15 +149,18 @@ public class FormularioNota extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cBoxAlumnoActionPerformed
 
-    private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {                                        
+    private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
+        // TODO add your handling code here:
         dispose();
-    }                                       
+    }//GEN-LAST:event_jBSalirActionPerformed
+                          
     
     
      //Cargar alumnos
-      private void cargaAlumnos() { //cargar al combo box
-        for (Alumno alumno : listaA) {
-            cBoxAlumno.addItem(alumno);
+    private void cargaAlumnos() { 
+        //cargar al combo box        
+        for (Alumno item : listaA) {
+            cBoxAlumno.addItem(item);
         }
     }
     
@@ -176,13 +186,18 @@ public class FormularioNota extends javax.swing.JInternalFrame {
     }
     
     //metodo carga datos inscriptos
-    private void cargaDatosInscriptas() {
-        //borrarFilasTabla()
-        Alumno selec = (Alumno) cBoxAlumno.getSelectedItem();
-        List<Materia> lista = inscData.obtenerMateriasCursadas(selec.getIdAlumno());
-          for (Materia m : lista) {
-            modelo.addRow(new Object[]{m.getIdMateria(), m.getNombre(), });
-        }
+    private void cargaDatosInscriptas() {      
+
+            //borrarFilaTabla();
+            Alumno selec = (Alumno) cBoxAlumno.getSelectedItem();
+            
+            List<Inscripcion> lista = inscData.obtenerInscripcionesPorAlumno(selec.getIdAlumno());
+            
+            for (Inscripcion i : lista){
+                modelo.addRow(new Object[]{i.getIdInscripcion(),i.getMateria().getNombre(), i.getNota()});
+            }
+            
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

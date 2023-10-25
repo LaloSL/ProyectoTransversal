@@ -225,32 +225,32 @@ public class InscripcionData {
             
     }        
     ////revisar este metodo
-     public List<Materia> obtenerNotasCursadas(int idAlumno){
-      ArrayList<Materia> materias=new ArrayList<>();
-      //producto cartesiano
-      String sql = "SELECT inscripcion.idMateria, materia.nombre, inscripcion.nota " +
-                 "FROM inscripcion, materia " +
-                 "JOIN materia ON inscripcion.idMateria = materia.idMateria " +
-                 "WHERE inscripcion.idAlumno = ?";
-      
-
-         try {
-        PreparedStatement ps = con.prepareStatement(sql);
-        ps.setInt(1, idAlumno);
-        ResultSet rs = ps.executeQuery();
-        while (rs.next()) {
-            Materia materia = new Materia();
-            materia.setIdMateria(rs.getInt("idMateria"));
-            materia.setNombre(rs.getString("nombre"));
-            materia.setNota(rs.getInt("nota"));
-            materias.add(materia);
-        }
-        ps.close();
-    } catch (SQLException ex) {
-        JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Inscripción");
-    }
-    return materias;
-}
+//     public List<Materia> obtenerNotasCursadas(int idAlumno){
+//      ArrayList<Materia> materias=new ArrayList<>();
+//      //producto cartesiano
+//      String sql = "SELECT inscripcion.idMateria, materia.nombre, inscripcion.nota " +
+//                 "FROM inscripcion, materia " +
+//                 "JOIN materia ON inscripcion.idMateria = materia.idMateria " +
+//                 "WHERE inscripcion.idAlumno = ?";
+//      
+//
+//         try {
+//        PreparedStatement ps = con.prepareStatement(sql);
+//        ps.setInt(1, idAlumno);
+//        ResultSet rs = ps.executeQuery();
+//        while (rs.next()) {
+//            Materia materia = new Materia();
+//            materia.setIdMateria(rs.getInt("idMateria"));
+//            materia.setNombre(rs.getString("nombre"));
+//            materia.setNota(rs.getInt("nota"));
+//            materias.add(materia);
+//        }
+//        ps.close();
+//    } catch (SQLException ex) {
+//        JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Inscripción");
+//    }
+//    return materias;
+//}
       
 }
     
