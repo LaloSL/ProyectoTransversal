@@ -104,7 +104,7 @@ public class MateriaData {
      
      public Materia  buscarMateriaId (int id){
         //busca materias por ID y con el estado 1(activo)
-        String sql = "SELECT nombre, año FROM materia WHERE idMateria = ? AND estado = 1";
+        String sql = "SELECT nombre, año, estado FROM materia WHERE idMateria = ?";
         Materia materia =null;
         try {
             PreparedStatement ps = con.prepareStatement(sql);            
@@ -115,7 +115,7 @@ public class MateriaData {
                 materia.setIdMateria(id);
                 materia.setNombre(rs.getString("nombre"));
                 materia.setAnioMateria(rs.getInt("año"));                
-                materia.setActiva(true);                
+                materia.setActiva(true||false);                
                 
                 //JOptionPane.showMessageDialog(null, "Alumno borrado");
             }else{

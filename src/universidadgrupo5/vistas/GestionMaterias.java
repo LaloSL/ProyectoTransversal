@@ -5,6 +5,8 @@
  */
 package universidadgrupo5.vistas;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import universidadgrupo5.accesoADatos.MateriaData;
@@ -227,8 +229,16 @@ public class GestionMaterias extends javax.swing.JInternalFrame {
         matActual= matData.buscarMateriaId(codigo);
         if(matActual!=null){
             jTNombre.setText(matActual.getNombre());
-            jREstado.setSelected(matActual.isActiva());  
-            jTAño.setText(String.valueOf(Integer.valueOf(matActual.getAnioMateria())));                        
+           
+            //REVISAR EL RADIO BUTTON ESTADO/ACTIVAR O DESACTIVAR SEGUN EL ESTADO
+            if(matActual.isActiva())
+            {    jREstado.setSelected(true);            
+                
+            }else{jREstado.setEnabled(false);}
+            
+            
+//                      
+            jTAño.setText(String.valueOf(Integer.valueOf(matActual.getAnioMateria())));
         }
         }catch (NumberFormatException ex){
             
