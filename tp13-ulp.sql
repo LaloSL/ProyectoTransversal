@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-10-2023 a las 00:48:31
+-- Tiempo de generación: 25-10-2023 a las 06:24:13
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -43,8 +43,15 @@ CREATE TABLE `alumno` (
 INSERT INTO `alumno` (`idAlumno`, `dni`, `apellido`, `nombre`, `fechaNacimiento`, `estado`) VALUES
 (34, 12345671, 'Veron', 'Juan', '2001-01-22', 0),
 (35, 12345672, 'Milito', 'Gabriel', '2002-02-12', 1),
-(36, 12345673, 'Perez', 'Juan', '2001-03-12', 1),
-(37, 1231231231, 'Ortega', 'Joaco', '1990-05-05', 0);
+(36, 12345673, 'Perez', 'Juan manuel', '2001-03-12', 1),
+(37, 1231231231, 'Ortega', 'Joaco', '1990-05-05', 0),
+(38, 123, 'ortega', 'marcos', '2023-10-17', 1),
+(39, 1234, 'lucero', 'maria', '2023-10-10', 1),
+(40, 123123, 'chaher', 'alejandro', '2023-10-03', 1),
+(41, 123456, 'becerra', 'maria', '2023-10-04', 0),
+(42, 111111, 'Martinez', 'Mariano', '2023-10-21', 0),
+(43, 1231233, 'perez', 'juan', '1995-05-05', 1),
+(44, 347008606, 'pepito', 'pablo', '2023-10-24', 1);
 
 -- --------------------------------------------------------
 
@@ -66,9 +73,9 @@ CREATE TABLE `inscripcion` (
 INSERT INTO `inscripcion` (`idInscripto`, `nota`, `idAlumno`, `idMateria`) VALUES
 (3, 8, 34, 24),
 (4, 7, 34, 25),
-(5, 10, 35, 26),
 (6, 9, 35, 27),
-(7, 2, 36, 28);
+(7, 2, 36, 28),
+(10, 0, 35, 26);
 
 -- --------------------------------------------------------
 
@@ -88,15 +95,19 @@ CREATE TABLE `materia` (
 --
 
 INSERT INTO `materia` (`idMateria`, `nombre`, `año`, `estado`) VALUES
-(24, 'Ingles', 2023, 1),
-(25, 'Matematica', 2023, 1),
+(24, 'Ingles', 2023, 0),
+(25, 'Matematica', 2023, 0),
 (26, 'Lengua', 2023, 1),
 (27, 'Fisica', 2023, 1),
 (28, 'Quimica', 2023, 1),
 (29, 'Biología', 2023, 1),
 (30, 'Literatura', 2023, 1),
 (31, 'Laboratorio1', 2023, 0),
-(32, 'EDA', 2023, 1);
+(32, 'EDA', 2023, 1),
+(33, 'Ingles2', 2022, 1),
+(34, 'Matematica 2', 2023, 1),
+(37, 'Matematica 3', 2023, 0),
+(40, 'Matematica 4', 2023, 1);
 
 --
 -- Índices para tablas volcadas
@@ -132,19 +143,19 @@ ALTER TABLE `materia`
 -- AUTO_INCREMENT de la tabla `alumno`
 --
 ALTER TABLE `alumno`
-  MODIFY `idAlumno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `idAlumno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT de la tabla `inscripcion`
 --
 ALTER TABLE `inscripcion`
-  MODIFY `idInscripto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `idInscripto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `materia`
 --
 ALTER TABLE `materia`
-  MODIFY `idMateria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `idMateria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- Restricciones para tablas volcadas
