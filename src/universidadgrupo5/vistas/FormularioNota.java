@@ -26,6 +26,7 @@ public class FormularioNota extends javax.swing.JInternalFrame {
     private List<Materia> listaM;
     private List<Alumno> listaA;
     private List<Inscripcion> Inscripcion;
+    List<Inscripcion> lista;
 
     private InscripcionData inscData;
     private MateriaData mData;
@@ -146,7 +147,8 @@ public class FormularioNota extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cBoxAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cBoxAlumnoActionPerformed
-        // TODO add your handling code here:
+        borrarFilaTabla();
+        cargaDatosInscriptas();
     }//GEN-LAST:event_cBoxAlumnoActionPerformed
 
     private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
@@ -188,15 +190,16 @@ public class FormularioNota extends javax.swing.JInternalFrame {
     //metodo carga datos inscriptos
     private void cargaDatosInscriptas() {      
 
-            //borrarFilaTabla();
+            
             Alumno selec = (Alumno) cBoxAlumno.getSelectedItem();
             
-            List<Inscripcion> lista = inscData.obtenerInscripcionesPorAlumno(selec.getIdAlumno());
+            lista = inscData.obtenerInscripcionesPorAlumno(selec.getIdAlumno());
             
             for (Inscripcion i : lista){
+                
                 modelo.addRow(new Object[]{i.getIdInscripcion(),i.getMateria().getNombre(), i.getNota()});
             }
-            
+           // borrarFilaTabla();
 
     }
 
