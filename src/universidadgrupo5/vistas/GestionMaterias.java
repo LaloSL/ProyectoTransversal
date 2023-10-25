@@ -57,7 +57,7 @@ public class GestionMaterias extends javax.swing.JInternalFrame {
 
         jLabel1.setText("Materia");
 
-        jBNuevo.setText("Nuevo");
+        jBNuevo.setText("Limpiar Campos");
         jBNuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBNuevoActionPerformed(evt);
@@ -111,8 +111,6 @@ public class GestionMaterias extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addComponent(jBNuevo)
-                .addGap(33, 33, 33)
-                .addComponent(jBEliminar)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(47, 47, 47)
@@ -136,7 +134,9 @@ public class GestionMaterias extends javax.swing.JInternalFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 126, Short.MAX_VALUE)
+                                .addGap(27, 27, 27)
+                                .addComponent(jBEliminar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                                 .addComponent(jBGuardar))
                             .addComponent(jTNombre))
                         .addGap(29, 29, 29)
@@ -208,7 +208,11 @@ public class GestionMaterias extends javax.swing.JInternalFrame {
                 matActual.setIdMateria(codigo);
                 matActual.setNombre(nombre);
                 matActual.setAnioMateria(año);
-                matActual.setActiva(estado);
+                if (matActual.isActiva()== false && estado == true){
+                    matActual.setActiva(true);
+                }else{
+                    matActual.setActiva(estado);
+                }
                 matData.guardarMateria(matActual);
 
             }
@@ -227,20 +231,21 @@ public class GestionMaterias extends javax.swing.JInternalFrame {
         Integer codigo=Integer.parseInt(jTCodigo.getText());
         
         matActual= matData.buscarMateriaId(codigo);
-        if(matActual!=null){
-            jTNombre.setText(matActual.getNombre());
-           
-            //REVISAR EL RADIO BUTTON ESTADO/ACTIVAR O DESACTIVAR SEGUN EL ESTADO
-            if(matActual.isActiva())
-            {    jREstado.setSelected(true);            
-                
-            }else{jREstado.setEnabled(false);}
+              if (matActual != null) {
+                  jTNombre.setText(matActual.getNombre());
+
+                  // Verifica si el valor en la base de datos es igual a 1 y lo convierte a booleano
+                  jREstado.setSelected(matActual.isActiva());
+
+                  jTAño.setText(String.valueOf(matActual.getAnioMateria()));
+}
+
             
             
 //                      
-            jTAño.setText(String.valueOf(Integer.valueOf(matActual.getAnioMateria())));
+            
         }
-        }catch (NumberFormatException ex){
+        catch (NumberFormatException ex){
             
             JOptionPane.showMessageDialog(this, "no existe la materia con el código indicado");
         }

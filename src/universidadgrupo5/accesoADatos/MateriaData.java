@@ -31,7 +31,7 @@ public class MateriaData {
     }
     
     public void guardarMateria(Materia materia){
-        
+        if(materia.getIdMateria()== 0){
         String sql="INSERT INTO materia (nombre, año, estado)"
                     + "VALUE(? ,? ,?)";
         
@@ -51,6 +51,21 @@ public class MateriaData {
             
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Materia");
+        }
+        }else{
+            String sql = "UPDATE materia SET estado = ? WHERE idMateria = ?";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setBoolean(1, materia.isActiva());
+            ps.setInt(2, materia.getIdMateria());
+            int filasActualizadas = ps.executeUpdate();
+            if (filasActualizadas > 0) {
+                JOptionPane.showMessageDialog(null, "Materia actualizada correctamente");
+            }
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al actualizar la materia");
+        }
         }
         
     }
@@ -115,7 +130,8 @@ public class MateriaData {
                 materia.setIdMateria(id);
                 materia.setNombre(rs.getString("nombre"));
                 materia.setAnioMateria(rs.getInt("año"));                
-                materia.setActiva(true||false);                
+                int estado = rs.getInt("estado");//muestra el estado en el radio button
+                materia.setActiva(estado == 1);                
                 
                 //JOptionPane.showMessageDialog(null, "Alumno borrado");
             }else{
