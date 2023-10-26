@@ -12,6 +12,8 @@ import javax.swing.table.DefaultTableModel;
 import universidadgrupo5.accesoADatos.AlumnoData;
 import universidadgrupo5.accesoADatos.InscripcionData;
 import universidadgrupo5.accesoADatos.MateriaData;
+import universidadgrupo5.entidades.Alumno;
+import universidadgrupo5.entidades.Inscripcion;
 
 import universidadgrupo5.entidades.Materia;
 
@@ -24,6 +26,8 @@ import universidadgrupo5.entidades.Materia;
 public class FormularioConsulta extends javax.swing.JInternalFrame {
 
      private List<Materia> listaM;
+    private List<Alumno> listaA;
+   private List<Inscripcion> Inscripcion;
     
     private InscripcionData inscData;
     private MateriaData mData;
@@ -37,6 +41,8 @@ public class FormularioConsulta extends javax.swing.JInternalFrame {
         modelo = new DefaultTableModel();
         mData = new MateriaData();  //FY
         listaM=mData.listarMaterias();
+        //listaA=aData.listarAlumnos();
+        inscData = new InscripcionData();
         cargaMaterias();
         armarCabeceraTabla();
         borrarFilaTabla();
@@ -76,7 +82,6 @@ public class FormularioConsulta extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jTabla);
 
-        jComboBox1.setSelectedItem(jComboBox1);
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -121,7 +126,39 @@ public class FormularioConsulta extends javax.swing.JInternalFrame {
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         borrarFilaTabla();
-        cargaMaterias();
+         
+        Materia materiaSeleccionada = (Materia) jComboBox1.getSelectedItem();
+         if(materiaSeleccionada!=null){
+          int idMateria = materiaSeleccionada.getIdMateria();
+          System.out.println("idmateria:" +idMateria);
+          List<Alumno> alumnosDeLaMateria =inscData.obtenerAlumnosXMateria(idMateria);
+          for(Alumno a: alumnosDeLaMateria){
+              modelo.addRow(new Object[]{a.getIdAlumno(), a.getDni(),a.getNombre(),a.getApellido()});
+          }
+//       
+         }
+//        
+//       
+        
+        
+        System.out.println("nombre materia:" +materiaSeleccionada);
+         //System.out.println("nombre materia:" +idMateria);
+        
+        
+//        String filtro = jtNombre.getText().toLowerCase();
+//        for (Producto prod : MenuGeneral.productos) {
+//
+//            if (prod.getDescripcion().toLowerCase().startsWith(filtro)) {
+//                modelo.addRow(new Object[]{
+//                    prod.getCodigo(),
+//                    prod.getDescripcion(),
+//                    prod.getPrecio(),
+//                    prod.getStock(),});
+//
+//            }
+//
+//        }
+        
     }//GEN-LAST:event_jComboBox1ActionPerformed
     //Cargar materias
     private void cargaMaterias() { 

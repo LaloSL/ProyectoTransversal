@@ -143,6 +143,7 @@ public class InscripcionData {
         return   inscriptas;            
       }
     
+    //obtener inscripciones por alumno
     public List<Inscripcion>  obtenerInscripcionesPorAlumno (int idAlumno){
                
         ArrayList<Inscripcion> inscriptas=new ArrayList<>();

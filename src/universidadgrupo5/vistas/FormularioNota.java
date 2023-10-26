@@ -38,8 +38,7 @@ public class FormularioNota extends javax.swing.JInternalFrame {
     private AlumnoData aData;
 
     private DefaultTableModel modelo;
-    JComboBox jBMateria = new JComboBox();
-
+    
     public FormularioNota() {
         initComponents();
 

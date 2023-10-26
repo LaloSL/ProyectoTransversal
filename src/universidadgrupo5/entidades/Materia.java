@@ -69,7 +69,7 @@ public class Materia {
     //ToString
     @Override
     public String toString() {
-        return nombre +" "+ anioMateria;
+        return nombre +" ,"+anioMateria+ " ,"+idMateria;
     }
 
     
