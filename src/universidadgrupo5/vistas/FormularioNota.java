@@ -7,6 +7,9 @@ package universidadgrupo5.vistas;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.DefaultCellEditor;
+import javax.swing.JTextField;
+import javax.swing.event.TableModelEvent;
 import javax.swing.table.DefaultTableModel;
 import universidadgrupo5.accesoADatos.AlumnoData;
 import universidadgrupo5.accesoADatos.InscripcionData;
@@ -81,6 +84,11 @@ public class FormularioNota extends javax.swing.JInternalFrame {
         });
 
         jButton1.setText("Guardar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jBSalir.setText("Salir");
         jBSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -155,6 +163,25 @@ public class FormularioNota extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_jBSalirActionPerformed
+    
+    //boton Guardar
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+//selecciono la fila
+int fila=jTablaNota.getSelectedRow();
+//valor de cada uno de los atributos
+//recupero el idInscripcion y la nota
+    int idInscripcion = (int) modelo.getValueAt(fila, 0); // La columna 0 corresponde a idInscripcion
+    String notaStr = (String) modelo.getValueAt(fila, 2); // La columna 2 corresponde a nota
+double nota = Double.parseDouble(notaStr); // Convierte la cadena en un Double
+
+System.out.println("nota " + nota+"idInscripcion"+idInscripcion);
+//hago el update 
+inscData.actualizarNota1(idInscripcion, nota);
+//cargo la tabla para actualizar
+cargaAlumnos();
+
+
+    }//GEN-LAST:event_jButton1ActionPerformed
                           
     
     

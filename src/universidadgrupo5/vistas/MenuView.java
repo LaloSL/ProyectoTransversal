@@ -54,6 +54,7 @@ public class MenuView extends javax.swing.JFrame {
         jMinscripciones = new javax.swing.JMenuItem();
         jMNotas = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jSalirProgram = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -94,6 +95,11 @@ public class MenuView extends javax.swing.JFrame {
         jMenuBar2.add(jMMateria);
 
         jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/universidadgrupo5/recursos/administracion.png"))); // NOI18N
+        jMenu5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu5ActionPerformed(evt);
+            }
+        });
 
         jMinscripciones.setText("Manejo de Inscripciones");
         jMinscripciones.addActionListener(new java.awt.event.ActionListener() {
@@ -114,6 +120,15 @@ public class MenuView extends javax.swing.JFrame {
         jMenuBar2.add(jMenu5);
 
         jMenu6.setText("Consultas");
+
+        jMenuItem1.setText("Consulta por Materia");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu6.add(jMenuItem1);
+
         jMenuBar2.add(jMenu6);
 
         jSalirProgram.setText("Salir");
@@ -191,6 +206,19 @@ public class MenuView extends javax.swing.JFrame {
         escritorio.add(nota);
     }//GEN-LAST:event_jMNotasActionPerformed
 
+    private void jMenu5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu5ActionPerformed
+        escritorio.removeAll();
+        escritorio.repaint();
+        FormularioConsulta con = new FormularioConsulta();
+        con.setVisible(true);
+        con.getContentPane().setBackground(new Color(68, 167, 132));
+        escritorio.add(con);
+    }//GEN-LAST:event_jMenu5ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -235,6 +263,7 @@ public class MenuView extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMinscripciones;
     private javax.swing.JMenu jSalirProgram;
