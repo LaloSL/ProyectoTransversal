@@ -4,17 +4,17 @@
  * and open the template in the editor.
  */
 package universidadgrupo5.vistas;
-import javax.swing.JComboBox;
+
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.DefaultComboBoxModel;
+
 import javax.swing.table.DefaultTableModel;
 import universidadgrupo5.accesoADatos.AlumnoData;
 import universidadgrupo5.accesoADatos.InscripcionData;
 import universidadgrupo5.accesoADatos.MateriaData;
-import universidadgrupo5.entidades.Alumno;
+
 import universidadgrupo5.entidades.Materia;
-import universidadgrupo5.entidades.Inscripcion;
+
 
 
 /**
@@ -36,10 +36,11 @@ public class FormularioConsulta extends javax.swing.JInternalFrame {
         initComponents();
         modelo = new DefaultTableModel();
         mData = new MateriaData();  //FY
-        listaM = new ArrayList<>();
+        listaM=mData.listarMaterias();
         cargaMaterias();
         armarCabeceraTabla();
         borrarFilaTabla();
+        
         //cargaDatosInscriptas();
     }
 
@@ -75,6 +76,7 @@ public class FormularioConsulta extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jTabla);
 
+        jComboBox1.setSelectedItem(jComboBox1);
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -149,7 +151,7 @@ public class FormularioConsulta extends javax.swing.JInternalFrame {
         for (int i = indice; i >= 0; i--) {
             modelo.removeRow(i);
         }
-
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<Materia> jComboBox1;
     private javax.swing.JLabel jLabel1;
