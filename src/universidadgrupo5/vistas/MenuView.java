@@ -54,7 +54,7 @@ public class MenuView extends javax.swing.JFrame {
         jMinscripciones = new javax.swing.JMenuItem();
         jMNotas = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        consultaPorMateria = new javax.swing.JMenuItem();
         jSalirProgram = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -121,13 +121,13 @@ public class MenuView extends javax.swing.JFrame {
 
         jMenu6.setText("Consultas");
 
-        jMenuItem1.setText("Consulta por Materia");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        consultaPorMateria.setText("Consulta por Materia");
+        consultaPorMateria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                consultaPorMateriaActionPerformed(evt);
             }
         });
-        jMenu6.add(jMenuItem1);
+        jMenu6.add(consultaPorMateria);
 
         jMenuBar2.add(jMenu6);
 
@@ -207,17 +207,17 @@ public class MenuView extends javax.swing.JFrame {
     }//GEN-LAST:event_jMNotasActionPerformed
 
     private void jMenu5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu5ActionPerformed
+        
+    }//GEN-LAST:event_jMenu5ActionPerformed
+
+    private void consultaPorMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultaPorMateriaActionPerformed
         escritorio.removeAll();
         escritorio.repaint();
         FormularioConsulta con = new FormularioConsulta();
         con.setVisible(true);
         con.getContentPane().setBackground(new Color(68, 167, 132));
         escritorio.add(con);
-    }//GEN-LAST:event_jMenu5ActionPerformed
-
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_consultaPorMateriaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -256,6 +256,7 @@ public class MenuView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem JMMaterias;
+    private javax.swing.JMenuItem consultaPorMateria;
     private javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenu jMAlumnos;
     private javax.swing.JMenu jMMateria;
@@ -263,7 +264,6 @@ public class MenuView extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar2;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMinscripciones;
     private javax.swing.JMenu jSalirProgram;
