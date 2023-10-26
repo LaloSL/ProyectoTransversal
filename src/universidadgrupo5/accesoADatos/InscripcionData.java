@@ -46,15 +46,15 @@ public class InscripcionData {
         
         String sql="UPDATE inscripcion SET nota = ? WHERE idAlumno = ? and idMateria = ?";
         try {
-            PreparedStatement ps=con.prepareStatement(sql);
-            ps.setDouble(1, nota);
-            ps.setInt(2, idAlumno);
-            ps.setInt(3, idMateria);
-            int filas=ps.executeUpdate();
-            if(filas>0){
-                JOptionPane.showMessageDialog(null, "Nota Actualizada");
+            try (PreparedStatement ps = con.prepareStatement(sql)) {
+                ps.setDouble(1, nota);
+                ps.setInt(2, idAlumno);
+                ps.setInt(3, idMateria);
+                int filas=ps.executeUpdate();
+                if(filas>0){
+                    JOptionPane.showMessageDialog(null, "Nota Actualizada");
+                }
             }
-            ps.close();
             
             
         } catch (SQLException ex) {
@@ -66,12 +66,16 @@ public class InscripcionData {
     //prueba con update solo de nota
     
     public void actualizarNota1(int idInscrpcion, double nota){
-        
+        double nota1=nota;
+        System.out.println("notar "+nota1);
+        int idInscripcion1=idInscrpcion;
+        System.out.println("insR "+idInscripcion1);
         String sql="UPDATE inscripcion SET nota = ? WHERE idInscrpcion = ?";
         try {
             PreparedStatement ps=con.prepareStatement(sql);
-            ps.setDouble(1, nota);
-            //ps.setInt(2, idInscrpcion);
+            ps.setDouble(1, nota1);
+            ps.setInt(2, idInscripcion1);
+            
             int filas=ps.executeUpdate();
             if(filas>0){
                 JOptionPane.showMessageDialog(null, "Nota Actualizada");
