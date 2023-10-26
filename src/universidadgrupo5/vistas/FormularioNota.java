@@ -178,7 +178,8 @@ System.out.println("nota " + nota+"idInscripcion"+idInscripcion);
 //hago el update 
 inscData.actualizarNota1(idInscripcion, nota);
 //cargo la tabla para actualizar
-cargaAlumnos();
+borrarFilaTabla();
+cargaDatosInscriptas();
 
 
     }//GEN-LAST:event_jButton1ActionPerformed

@@ -70,7 +70,7 @@ public class InscripcionData {
         System.out.println("notar "+nota1);
         int idInscripcion1=idInscrpcion;
         System.out.println("insR "+idInscripcion1);
-        String sql="UPDATE inscripcion SET nota = ? WHERE idInscrpcion = ?";
+        String sql="UPDATE inscripcion SET nota = ? WHERE idInscripto = ?";
         try {
             PreparedStatement ps=con.prepareStatement(sql);
             ps.setDouble(1, nota1);
@@ -84,6 +84,7 @@ public class InscripcionData {
             
             
         } catch (SQLException ex) {
+            ex.printStackTrace();
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla inscripción");
         }
         
