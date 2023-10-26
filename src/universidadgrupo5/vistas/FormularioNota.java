@@ -17,6 +17,8 @@ import universidadgrupo5.accesoADatos.MateriaData;
 import universidadgrupo5.entidades.Alumno;
 import universidadgrupo5.entidades.Inscripcion;
 import universidadgrupo5.entidades.Materia;
+import javax.swing.JComboBox;
+
 
 
 
@@ -36,7 +38,8 @@ public class FormularioNota extends javax.swing.JInternalFrame {
     private AlumnoData aData;
 
     private DefaultTableModel modelo;
-    
+    JComboBox jBMateria = new JComboBox();
+
     public FormularioNota() {
         initComponents();
 
