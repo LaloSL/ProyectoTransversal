@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-10-2023 a las 06:24:13
+-- Tiempo de generación: 27-10-2023 a las 02:10:47
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -41,15 +41,15 @@ CREATE TABLE `alumno` (
 --
 
 INSERT INTO `alumno` (`idAlumno`, `dni`, `apellido`, `nombre`, `fechaNacimiento`, `estado`) VALUES
-(34, 12345671, 'Veron', 'Juan', '2001-01-22', 0),
+(34, 12345671, 'Veron', 'Juan', '2001-01-22', 1),
 (35, 12345672, 'Milito', 'Gabriel', '2002-02-12', 1),
 (36, 12345673, 'Perez', 'Juan manuel', '2001-03-12', 1),
-(37, 1231231231, 'Ortega', 'Joaco', '1990-05-05', 0),
+(37, 1231231231, 'Ortega', 'Joaco', '1990-05-05', 1),
 (38, 123, 'ortega', 'marcos', '2023-10-17', 1),
 (39, 1234, 'lucero', 'maria', '2023-10-10', 1),
 (40, 123123, 'chaher', 'alejandro', '2023-10-03', 1),
-(41, 123456, 'becerra', 'maria', '2023-10-04', 0),
-(42, 111111, 'Martinez', 'Mariano', '2023-10-21', 0),
+(41, 123456, 'becerra', 'maria', '2023-10-04', 1),
+(42, 111111, 'Martinez', 'Mariano', '2023-10-21', 1),
 (43, 1231233, 'perez', 'juan', '1995-05-05', 1),
 (44, 347008606, 'pepito', 'pablo', '2023-10-24', 1);
 
@@ -75,7 +75,8 @@ INSERT INTO `inscripcion` (`idInscripto`, `nota`, `idAlumno`, `idMateria`) VALUE
 (4, 7, 34, 25),
 (6, 9, 35, 27),
 (7, 2, 36, 28),
-(10, 0, 35, 26);
+(10, 5, 35, 26),
+(11, 7, 38, 26);
 
 -- --------------------------------------------------------
 
@@ -149,7 +150,7 @@ ALTER TABLE `alumno`
 -- AUTO_INCREMENT de la tabla `inscripcion`
 --
 ALTER TABLE `inscripcion`
-  MODIFY `idInscripto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `idInscripto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `materia`
