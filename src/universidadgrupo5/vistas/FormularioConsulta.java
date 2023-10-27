@@ -129,38 +129,22 @@ public class FormularioConsulta extends javax.swing.JInternalFrame {
          
         Materia materiaSeleccionada = (Materia) jComboBox1.getSelectedItem();
          if(materiaSeleccionada!=null){
-          int idMateria = materiaSeleccionada.getIdMateria();
-          System.out.println("idmateria:" +idMateria);
+          int idMateria = materiaSeleccionada.getIdMateria();         
           List<Alumno> alumnosDeLaMateria =inscData.obtenerAlumnosXMateria(idMateria);
           for(Alumno a: alumnosDeLaMateria){
-              modelo.addRow(new Object[]{a.getIdAlumno(), a.getDni(),a.getNombre(),a.getApellido()});
+              modelo.addRow(new Object[]{
+                  a.getIdAlumno(), 
+                  a.getDni(),
+                  a.getNombre(),
+                  a.getApellido()});
           }
-//       
+     
          }
-//        
-//       
-        
-        
-        System.out.println("nombre materia:" +materiaSeleccionada);
-         //System.out.println("nombre materia:" +idMateria);
-        
-        
-//        String filtro = jtNombre.getText().toLowerCase();
-//        for (Producto prod : MenuGeneral.productos) {
-//
-//            if (prod.getDescripcion().toLowerCase().startsWith(filtro)) {
-//                modelo.addRow(new Object[]{
-//                    prod.getCodigo(),
-//                    prod.getDescripcion(),
-//                    prod.getPrecio(),
-//                    prod.getStock(),});
-//
-//            }
-//
-//        }
+
         
     }//GEN-LAST:event_jComboBox1ActionPerformed
-    //Cargar materias
+    
+//Cargar materias
     private void cargaMaterias() { 
         //cargar al combo box        
         for (Materia item : listaM) {

@@ -56,6 +56,7 @@ public class MenuView extends javax.swing.JFrame {
         jMenu6 = new javax.swing.JMenu();
         consultaPorMateria = new javax.swing.JMenuItem();
         jSalirProgram = new javax.swing.JMenu();
+        jSalirSistema = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -137,6 +138,15 @@ public class MenuView extends javax.swing.JFrame {
                 jSalirProgramActionPerformed(evt);
             }
         });
+
+        jSalirSistema.setText("Salir del Sistema");
+        jSalirSistema.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jSalirSistemaActionPerformed(evt);
+            }
+        });
+        jSalirProgram.add(jSalirSistema);
+
         jMenuBar2.add(jSalirProgram);
 
         setJMenuBar(jMenuBar2);
@@ -219,6 +229,10 @@ public class MenuView extends javax.swing.JFrame {
         escritorio.add(con);
     }//GEN-LAST:event_consultaPorMateriaActionPerformed
 
+    private void jSalirSistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSalirSistemaActionPerformed
+        dispose();
+    }//GEN-LAST:event_jSalirSistemaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -267,5 +281,6 @@ public class MenuView extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMinscripciones;
     private javax.swing.JMenu jSalirProgram;
+    private javax.swing.JMenuItem jSalirSistema;
     // End of variables declaration//GEN-END:variables
 }
