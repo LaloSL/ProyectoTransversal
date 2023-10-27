@@ -35,7 +35,7 @@ public class MenuView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        ImageIcon icono=new ImageIcon(getClass().getResource("/universidadgrupo5/recursos/Universidad.jpg"));
+        ImageIcon icono=new ImageIcon(getClass().getResource("/universidadgrupo5/recursos/Universidad2.jpg"));
         Image miImagen=icono.getImage();
         escritorio = new javax.swing.JDesktopPane(){
 

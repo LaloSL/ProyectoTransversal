@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-10-2023 a las 02:10:47
+-- Tiempo de generación: 27-10-2023 a las 21:37:33
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -73,10 +73,10 @@ CREATE TABLE `inscripcion` (
 INSERT INTO `inscripcion` (`idInscripto`, `nota`, `idAlumno`, `idMateria`) VALUES
 (3, 8, 34, 24),
 (4, 7, 34, 25),
-(6, 9, 35, 27),
 (7, 2, 36, 28),
 (10, 5, 35, 26),
-(11, 7, 38, 26);
+(11, 7, 38, 26),
+(12, 10, 35, 27);
 
 -- --------------------------------------------------------
 
@@ -150,7 +150,7 @@ ALTER TABLE `alumno`
 -- AUTO_INCREMENT de la tabla `inscripcion`
 --
 ALTER TABLE `inscripcion`
-  MODIFY `idInscripto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `idInscripto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `materia`
