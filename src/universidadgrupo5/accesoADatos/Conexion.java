@@ -1,8 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+// Clase Conexion (UniversidadGrupo5)
+
 package universidadgrupo5.accesoADatos;
 
 import java.sql.*;
@@ -26,15 +23,13 @@ public class Conexion {
             try {
                 Class.forName("org.mariadb.jdbc.Driver");//cargamos el driver
                 connection = DriverManager.getConnection(URL+DB,USUARIO,PASWORD);//conectamos el driver
-            //JOptionPane.showMessageDialog(null, "Conectado");
+                JOptionPane.showMessageDialog(null, "Conectado Exitosamente");
                 
             } catch (ClassNotFoundException ex) {
                 JOptionPane.showMessageDialog(null, "Error al cargar los Driver ");
                 
             } catch (SQLException ex) {
                 JOptionPane.showMessageDialog(null, "Error de conexion con la BD ");
-
-                
             }
         }
         return connection;

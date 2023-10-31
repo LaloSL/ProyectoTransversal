@@ -1,8 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+// Clase MateriaData
+ 
 package universidadgrupo5.accesoADatos;
 
 import java.sql.Connection;
@@ -21,9 +18,7 @@ import universidadgrupo5.entidades.Materia;
  * @author Joaco
  */
 public class MateriaData {
-    
-    
-    
+      
     private Connection con=null;
     
     public MateriaData(){
@@ -31,8 +26,8 @@ public class MateriaData {
     }
     
     public void guardarMateria(Materia materia){
-        if(materia.getIdMateria()== 0){
-        String sql="INSERT INTO materia (nombre, año, estado)"
+        //if(materia.getIdMateria()== 0){
+        String sql="INSERT INTO materia (nombre,año,estado)"
                     + "VALUE(? ,? ,?)";
         
         try {            
@@ -52,26 +47,28 @@ public class MateriaData {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Materia");
         }
-        }else{
-            String sql = "UPDATE materia SET estado = ? WHERE idMateria = ?";
-        try {
-            PreparedStatement ps = con.prepareStatement(sql);
-            ps.setBoolean(1, materia.isActiva());
-            ps.setInt(2, materia.getIdMateria());
-            int filasActualizadas = ps.executeUpdate();
-            if (filasActualizadas > 0) {
-                JOptionPane.showMessageDialog(null, "Materia actualizada correctamente");
-            }
-            ps.close();
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al actualizar la materia");
-        }
-        }
         
-    }
+    }    
+//        }else{
+//            String sql = "UPDATE materia SET estado = ? WHERE idMateria = ?";
+//        try {
+//            PreparedStatement ps = con.prepareStatement(sql);
+//            ps.setBoolean(1, materia.isActiva());
+//            ps.setInt(2, materia.getIdMateria());
+//            int filasActualizadas = ps.executeUpdate();
+//            if (filasActualizadas > 0) {
+//                JOptionPane.showMessageDialog(null, "Materia actualizada correctamente");
+//            }
+//            ps.close();
+//        } catch (SQLException ex) {
+//            JOptionPane.showMessageDialog(null, "Error al actualizar la materia");
+//     }
+//        }
+        
+ //   }
     
 
-    
+//------------------------------------------------------------------------------    
     
     public void modificarMateria (Materia materia){
         
@@ -95,7 +92,7 @@ public class MateriaData {
         }
         
     }
-    
+//------------------------------------------------------------------------------    
      public void eliminarMateria (int idMateria){
         
         String sql = "UPDATE materia SET estado = 0 WHERE idMateria = ?";
@@ -116,7 +113,7 @@ public class MateriaData {
     
 }
      
-     
+//------------------------------------------------------------------------------     
      public Materia  buscarMateriaId (int id){
         //busca materias por ID y con el estado 1(activo)
         String sql = "SELECT nombre, año, estado FROM materia WHERE idMateria = ?";
@@ -146,7 +143,7 @@ public class MateriaData {
         return materia;               
       }
      
-     
+//------------------------------------------------------------------------------     
      public List<Materia>  listarMaterias (){
         //
         String sql = "SELECT idMateria, nombre, año FROM materia WHERE estado = 1";

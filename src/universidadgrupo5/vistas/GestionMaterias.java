@@ -1,8 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+// clase GestionMaterias  (vista "Formulario de Materias")
+
 package universidadgrupo5.vistas;
 
 import java.awt.event.ActionEvent;
@@ -13,16 +10,12 @@ import universidadgrupo5.accesoADatos.MateriaData;
 import universidadgrupo5.entidades.Materia;
 
 /**
- *
  * @author Joaco
  */
 public class GestionMaterias extends javax.swing.JInternalFrame {
-    
+
     private MateriaData matData = new MateriaData();
     private Materia matActual = null;
-    
-   
-    
 
     /**
      * Creates new form GestionMaterias
@@ -175,119 +168,108 @@ public class GestionMaterias extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
-    
+
+//------------------------------------------------------------------------------    
     //BOTON GUARDAR
     private void jBGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarActionPerformed
-        
-        try{
-            //trae los datos de los diferentes campos
-            Integer codigo = Integer.parseInt(jTCodigo.getText());
-            String nombre = jTNombre.getText();
-            Integer año= Integer.parseInt(jTAño.getText());
-            boolean estado = jREstado.isSelected();
-          
 
-            //Traigo los datos del formulario
-            
-              //chequea que no esta vacio los campos
-//            if (nombre.isEmpty() || codigo.isEmpty()) {
-//
-//                JOptionPane.showMessageDialog(this, "Favor copmpletar los campos vacios");
-//                return;
-//            }
-            
-           
-            //de ahora en mas pregunto si es una materia nuevo o actual
-            if (matActual == null) {
-                //si entra aca es un alumno nuevo
-                matActual = new Materia(codigo, nombre, año, estado);
+        try {
+            //trae los datos de los diferentes campos
+            Integer codigo = Integer.parseInt(jTCodigo.getText());// capturar exception
+            String nombre = jTNombre.getText();
+
+//chequea que no esta vacio el campo nombre  //f
+            if (nombre.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Favor completar los campos vacios"); //f
+                return;
+            }
+
+            Integer año = Integer.parseInt(jTAño.getText());
+            boolean estado = jREstado.isSelected();
+
+            if (matActual == null) { //pregunto si es una materia es vacia es nueva
+
+                matActual = new Materia(codigo, nombre, año, estado); //si entra aca es un alumno nuevo
                 matData.guardarMateria(matActual);
-                
-            } else {
+
+            } else {  // si entra acá es una materia cargada previamente
                 matActual.setIdMateria(codigo);
                 matActual.setNombre(nombre);
                 matActual.setAnioMateria(año);
-                if (matActual.isActiva()== false && estado == true){
+
+                if (matActual.isActiva() == false && estado == true) {
                     matActual.setActiva(true);
-                }else{
+                } else {
                     matActual.setActiva(estado);
                 }
-                matData.guardarMateria(matActual);
-
+                matData.modificarMateria(matActual);//guardarMateria(matActual);
             }
 
-        }catch (NumberFormatException nfe){
-        JOptionPane.showMessageDialog(this, "Ingresar un Codigo valido");
+        } catch (NumberFormatException nfe) {
+            JOptionPane.showMessageDialog(this, "Ingresar un Codigo valido");
         }
-        limpiarCampos();
-        
-        
-        
+        //limpiarCampos();
+
+
     }//GEN-LAST:event_jBGuardarActionPerformed
-    //BOTON BUSCAR
+//------------------------------------------------------------------------------    
+//BOTON BUSCAR
     private void jBBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarActionPerformed
-          try{
-        Integer codigo=Integer.parseInt(jTCodigo.getText());
-        
-        matActual= matData.buscarMateriaId(codigo);
-              if (matActual != null) {
-                  jTNombre.setText(matActual.getNombre());
+        try {
+            Integer codigo = Integer.parseInt(jTCodigo.getText());
 
-                  // Verifica si el valor en la base de datos es igual a 1 y lo convierte a booleano
-                  jREstado.setSelected(matActual.isActiva());
+            matActual = matData.buscarMateriaId(codigo);
+            if (matActual != null) {
+                jTNombre.setText(matActual.getNombre());
 
-                  jTAño.setText(String.valueOf(matActual.getAnioMateria()));
-}
+                // Verifica si el valor en la base de datos es igual a 1 y lo convierte a booleano
+                jREstado.setSelected(matActual.isActiva());
 
-            
-            
+                jTAño.setText(String.valueOf(matActual.getAnioMateria()));
+            }
+
 //                      
-            
-        }
-        catch (NumberFormatException ex){
-            
+        } catch (NumberFormatException ex) {
+
             JOptionPane.showMessageDialog(this, "no existe la materia con el código indicado");
         }
-        
-        
-        
+
+
     }//GEN-LAST:event_jBBuscarActionPerformed
 
     private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
         dispose();
     }//GEN-LAST:event_jBSalirActionPerformed
-    
 
     //BOTON NUEVO
     private void jBNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNuevoActionPerformed
-                                       
+
         limpiarCampos();
-        matActual=null;
-    
+        matActual = null;
+
     }//GEN-LAST:event_jBNuevoActionPerformed
 
     private void jBEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEliminarActionPerformed
         // TODO add your handling code here:
-        if(matActual!=null){
-        //si entra es xq el alumno existe
-        matData.eliminarMateria(matActual.getIdMateria());
-        matActual=null;
-        limpiarCampos();
-        
-        }else{
+        if (matActual != null) {
+            //si entra es xq el alumno existe
+            matData.eliminarMateria(matActual.getIdMateria());
+            matActual = null;
+            limpiarCampos();
+
+        } else {
             JOptionPane.showMessageDialog(this, "Favor indicar el codigo de la materia");
-        
+
         }
     }//GEN-LAST:event_jBEliminarActionPerformed
 
-    private void limpiarCampos(){
-    
+    private void limpiarCampos() {
+
         jTCodigo.setText("");
         jTNombre.setText("");
         jREstado.setSelected(true);
         jTAño.setText("");
-        
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
