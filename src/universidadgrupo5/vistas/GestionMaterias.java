@@ -236,6 +236,9 @@ public class GestionMaterias extends javax.swing.JInternalFrame {
 
             JOptionPane.showMessageDialog(this, "no existe la materia con el código indicado");
         }
+        
+
+    
 
 
     }//GEN-LAST:event_jBBuscarActionPerformed
@@ -268,7 +271,7 @@ public class GestionMaterias extends javax.swing.JInternalFrame {
 
     private void limpiarCampos() {
 
-        //jTCodigo.setText(""); no borra el ID para saber cual se modificó
+        //jTCodigo.setText(""); //No borra el codigo para ver cual fue el ultimo q se modificó
         jTNombre.setText("");
         jREstado.setSelected(true);
         jTAño.setText("");
