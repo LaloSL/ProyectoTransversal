@@ -175,7 +175,7 @@ public class GestionMaterias extends javax.swing.JInternalFrame {
 
         try {
             //trae los datos de los diferentes campos
-            Integer codigo = Integer.parseInt(jTCodigo.getText());// capturar exception
+           //Integer codigo = Integer.parseInt(jTCodigo.getText());// capturar exception
             String nombre = jTNombre.getText();
 
 //chequea que no esta vacio el campo nombre  //f
@@ -189,11 +189,13 @@ public class GestionMaterias extends javax.swing.JInternalFrame {
 
             if (matActual == null) { //pregunto si es una materia es vacia es nueva
 
-                matActual = new Materia(codigo, nombre, año, estado); //si entra aca es un alumno nuevo
+                //matActual = new Materia(codigo, nombre, año, estado); //si entra aca es una materia nuevo
+                 matActual = new Materia(nombre, año, estado);
                 matData.guardarMateria(matActual);
 
             } else {  // si entra acá es una materia cargada previamente
-                matActual.setIdMateria(codigo);
+                
+                //matActual.setIdMateria(codigo);
                 matActual.setNombre(nombre);
                 matActual.setAnioMateria(año);
 
@@ -202,13 +204,14 @@ public class GestionMaterias extends javax.swing.JInternalFrame {
                 } else {
                     matActual.setActiva(estado);
                 }
-                matData.modificarMateria(matActual);//guardarMateria(matActual);
+//                matData.modificarMateria(matActual);//guardarMateria(matActual);
+               matData.guardarMateria(matActual);
             }
 
         } catch (NumberFormatException nfe) {
             JOptionPane.showMessageDialog(this, "Ingresar un Codigo valido");
         }
-        //limpiarCampos();
+        limpiarCampos();
 
 
     }//GEN-LAST:event_jBGuardarActionPerformed
@@ -265,7 +268,7 @@ public class GestionMaterias extends javax.swing.JInternalFrame {
 
     private void limpiarCampos() {
 
-        jTCodigo.setText("");
+        //jTCodigo.setText(""); no borra el ID para saber cual se modificó
         jTNombre.setText("");
         jREstado.setSelected(true);
         jTAño.setText("");

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-10-2023 a las 21:37:33
+-- Tiempo de generación: 02-11-2023 a las 19:36:03
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -97,7 +97,7 @@ CREATE TABLE `materia` (
 
 INSERT INTO `materia` (`idMateria`, `nombre`, `año`, `estado`) VALUES
 (24, 'Ingles', 2023, 0),
-(25, 'Matematica', 2023, 0),
+(25, 'Matematica 5', 2023, 1),
 (26, 'Lengua', 2023, 1),
 (27, 'Fisica', 2023, 1),
 (28, 'Quimica', 2023, 1),
@@ -108,7 +108,18 @@ INSERT INTO `materia` (`idMateria`, `nombre`, `año`, `estado`) VALUES
 (33, 'Ingles2', 2022, 1),
 (34, 'Matematica 2', 2023, 1),
 (37, 'Matematica 3', 2023, 0),
-(40, 'Matematica 4', 2023, 1);
+(40, 'Matematica 4', 2023, 1),
+(52, 'literatura II', 2023, 1),
+(53, 'historia americana', 2023, 1),
+(54, 'historia argentna', 2023, 1),
+(55, 'pepita', 12023, 1),
+(56, 'Geografia argentina', 2023, 1),
+(57, 'Geografia Argentina 2', 2023, 0),
+(59, 'Geografia argentina 1', 2023, 1),
+(67, 'Ingenieria ', 2023, 1),
+(69, 'Ingenieria 2', 2023, 1),
+(70, 'ingenieria1', 2023, 1),
+(71, 'Biologia 1', 2023, 1);
 
 --
 -- Índices para tablas volcadas
@@ -156,7 +167,7 @@ ALTER TABLE `inscripcion`
 -- AUTO_INCREMENT de la tabla `materia`
 --
 ALTER TABLE `materia`
-  MODIFY `idMateria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `idMateria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 
 --
 -- Restricciones para tablas volcadas

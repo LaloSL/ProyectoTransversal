@@ -5,10 +5,12 @@
  */
 package universidadgrupo5.vistas;
 
+import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.Int;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 //import static org.mariadb.jdbc.internal.util.pool.Pools.close;
 
 /**
@@ -56,7 +58,6 @@ public class MenuView extends javax.swing.JFrame {
         jMenu6 = new javax.swing.JMenu();
         consultaPorMateria = new javax.swing.JMenuItem();
         jSalirProgram = new javax.swing.JMenu();
-        jSalirSistema = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -133,20 +134,11 @@ public class MenuView extends javax.swing.JFrame {
         jMenuBar2.add(jMenu6);
 
         jSalirProgram.setText("Salir");
-        jSalirProgram.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jSalirProgramActionPerformed(evt);
+        jSalirProgram.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jSalirProgramMouseClicked(evt);
             }
         });
-
-        jSalirSistema.setText("Salir del Sistema");
-        jSalirSistema.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jSalirSistemaActionPerformed(evt);
-            }
-        });
-        jSalirProgram.add(jSalirSistema);
-
         jMenuBar2.add(jSalirProgram);
 
         setJMenuBar(jMenuBar2);
@@ -201,10 +193,6 @@ public class MenuView extends javax.swing.JFrame {
     }                            
     }//GEN-LAST:event_jMinscripcionesActionPerformed
 
-    private void jSalirProgramActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSalirProgramActionPerformed
-       dispose(); // finalizar programa (FY)
-    }//GEN-LAST:event_jSalirProgramActionPerformed
-
     private void jMNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMNotasActionPerformed
         // TODO add your handling code here:
         
@@ -229,9 +217,12 @@ public class MenuView extends javax.swing.JFrame {
         escritorio.add(con);
     }//GEN-LAST:event_consultaPorMateriaActionPerformed
 
-    private void jSalirSistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSalirSistemaActionPerformed
-        dispose();
-    }//GEN-LAST:event_jSalirSistemaActionPerformed
+    private void jSalirProgramMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jSalirProgramMouseClicked
+        int salir = JOptionPane.showConfirmDialog(null, "Seguro quieres salir?","Seguro seguro?", JOptionPane.YES_NO_OPTION);
+        if(salir == JOptionPane.YES_OPTION){
+            System.exit(salir);
+        }
+    }//GEN-LAST:event_jSalirProgramMouseClicked
 
     /**
      * @param args the command line arguments
@@ -281,6 +272,5 @@ public class MenuView extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMinscripciones;
     private javax.swing.JMenu jSalirProgram;
-    private javax.swing.JMenuItem jSalirSistema;
     // End of variables declaration//GEN-END:variables
 }
